@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
+
+# Environments
+.env
+.env.*
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# OS files
+.DS_Store

@@ -5,14 +5,12 @@ import streamlit as st
 from transformers import pipeline
 from dotenv import load_dotenv
 
-# ---- Custom Page Config ----
 st.set_page_config(
     page_title="Earring Review Sentiment Analyzer",
     page_icon=":earring:",  # Change to a jewelry/earring emoji if you like!
     layout="wide"
 )
 
-# ---- Custom CSS ----
 st.markdown("""
 <style>
 /* Set wider max width and cleaner fonts */
@@ -27,7 +25,6 @@ h1, h2, h3, .stApp { font-family: 'Segoe UI', Arial, sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Load Model ----
 load_dotenv()
 @st.cache_resource(show_spinner=False)
 def load_model():
@@ -39,7 +36,6 @@ def load_model():
     )
 nlp = load_model()
 
-# ---- App Title ----
 st.markdown("<h1 style='font-weight:800; color:#333;'>✨ Product Review Sentiment Analyzer</h1>", unsafe_allow_html=True)
 st.write("Quickly analyze your earring shop's customer reviews to discover what delights your buyers — and what can be improved.")
 
@@ -50,7 +46,6 @@ with st.expander("ℹ️ How to Use", expanded=False):
     - Download the results as a CSV for records or further analysis.
     """)
 
-# ---- Layout ----
 input_col, results_col = st.columns([1,2])
 
 with input_col:
@@ -95,7 +90,6 @@ with results_col:
                 hide_index=True
             )
 
-            # Download button in sidebar
             st.sidebar.header("📥 Download")
             csv = df_out.to_csv(index=False).encode("utf-8")
             st.sidebar.download_button(
@@ -109,7 +103,6 @@ with results_col:
     elif not reviews and analyze_btn:
         st.warning("Please enter at least one review or upload a valid CSV.")
 
-# ---- Footer ----
 st.markdown(
     "<hr style='margin:2em 0'>"
     "<small style='color:#999;'>MIT License © 2025 ZaviQ7 • Built with Hugging Face 🤗 and Streamlit</small>",

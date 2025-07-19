@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 st.set_page_config(
     page_title="Earring Review Sentiment Analyzer",
-    page_icon=":earring:",  # Change to a jewelry/earring emoji if you like!
+    page_icon=":earring:",  
     layout="wide"
 )
 
